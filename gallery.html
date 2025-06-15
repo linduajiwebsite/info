@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeri Kegiatan - Lindu Aji Kabupaten Semarang</title>
-  <link rel="icon" href="assets/images/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -35,6 +35,12 @@
       width: 90px;
     }
 
+    p.center-text {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -62,6 +68,22 @@
       display: block;
     }
 
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-grid iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 8px;
+    }
+
     .cta-button {
       margin: 2rem auto;
       padding: 14px 28px;
@@ -77,87 +99,106 @@
     .cta-button:hover {
       opacity: 0.9;
     }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
   </style>
 </head>
 <body>
-<canvas id="starCanvas"></canvas>
+  <canvas id="starCanvas"></canvas>
 
-<img src="assets/images/logo.png" alt="Logo Lindu Aji" class="logo">
-<h1>Galeri Kegiatan Lindu Aji Kabupaten Semarang</h1>
+  <img src="assets/images/logo.png" alt="Logo Lindu Aji" class="logo" />
+  <h1>Galeri Kegiatan Lindu Aji Kabupaten Semarang</h1>
+  <p class="center-text">Beberapa momen kegiatan dan kebersamaan organisasi kami yang penuh semangat dan kekeluargaan.</p>
 
-<<p class="center-text">Beberapa momen kegiatan dan kebersamaan organisasi kami yang penuh semangat dan kekeluargaan.</p>
-
-  <div class="gallery-container">
-    <img src="assets/images/kegiatan1.jpg" alt="Kegiatan 1" class="gallery-img">
-    <img src="assets/images/kegiatan2.jpg" alt="Kegiatan 2" class="gallery-img">
-    <img src="assets/images/kegiatan3.jpg" alt="Kegiatan 3" class="gallery-img">
-    <img src="assets/images/kegiatan4.jpg" alt="Kegiatan 4" class="gallery-img">
-    <img src="assets/images/kegiatan5.jpg" alt="Kegiatan 5" class="gallery-img">
-    <img src="assets/images/kegiatan6.jpg" alt="Kegiatan 6" class="gallery-img">
-    <img src="assets/images/kegiatan7.jpg" alt="Kegiatan 7" class="gallery-img">
-    <img src="assets/images/kegiatan8.jpg" alt="Kegiatan 8" class="gallery-img">
-    <img src="assets/images/kegiatan9.jpg" alt="Kegiatan 9" class="gallery-img">
-    <img src="assets/images/kegiatan10.jpg" alt="Kegiatan 10" class="gallery-img">
-    <img src="assets/images/kegiatan11.jpg" alt="Kegiatan 11" class="gallery-img">
-    <img src="assets/images/kegiatan12.jpg" alt="Kegiatan 12" class="gallery-img">
-    <img src="assets/images/kegiatan13.jpg" alt="Kegiatan 13" class="gallery-img">
-    <img src="assets/images/kegiatan14.jpg" alt="Kegiatan 14" class="gallery-img">
+  <div class="gallery">
+    <!-- Gunakan div.gallery-item untuk tiap gambar -->
+    <div class="gallery-item"><img src="assets/images/kegiatan1.jpg" alt="Kegiatan 1" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan2.jpg" alt="Kegiatan 2" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan3.jpg" alt="Kegiatan 3" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan4.jpg" alt="Kegiatan 4" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan5.jpg" alt="Kegiatan 5" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan6.jpg" alt="Kegiatan 6" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan7.jpg" alt="Kegiatan 7" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan8.jpg" alt="Kegiatan 8" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan9.jpg" alt="Kegiatan 9" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan10.jpg" alt="Kegiatan 10" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan11.jpg" alt="Kegiatan 11" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan12.jpg" alt="Kegiatan 12" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan13.jpg" alt="Kegiatan 13" /></div>
+    <div class="gallery-item"><img src="assets/images/kegiatan14.jpg" alt="Kegiatan 14" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan15.jpg" alt="Kegiatan 15" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan16.jpg" alt="Kegiatan 16" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan17.jpg" alt="Kegiatan 17" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan18.jpg" alt="Kegiatan 18" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan19.jpg" alt="Kegiatan 19" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan20.jpg" alt="Kegiatan 20" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan21.jpg" alt="Kegiatan 21" /></div>
+	<div class="gallery-item"><img src="assets/images/kegiatan22.jpg" alt="Kegiatan 22" /></div>
   </div>
-  <section>
-    <iframe src="https://www.youtube.com/embed/5E58NP1-BRo" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/nrR6WUonQ8s" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/0S0LSMgeZQU" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/laSGwOjVGEk" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/a0GbEFZUAqA" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/R0wCgSYGyTU" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/DPru6or4MZ8" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/kXI-EmUXY68" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/AqJKIUfU7YA" frameborder="0" allowfullscreen></iframe>
-	<iframe src="https://www.youtube.com/embed/wvVfedAxf9Q" frameborder="0" allowfullscreen></iframe>
-  </section>
 
-<a href="index.html"><button class="cta-button">Kembali ke Beranda</button></a>
+  <div class="video-grid">
+    <iframe src="https://www.youtube.com/embed/5E58NP1-BRo" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/nrR6WUonQ8s" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/0S0LSMgeZQU" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/laSGwOjVGEk" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/a0GbEFZUAqA" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/R0wCgSYGyTU" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/DPru6or4MZ8" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/kXI-EmUXY68" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/AqJKIUfU7YA" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/wvVfedAxf9Q" allowfullscreen></iframe>
+  </div>
 
-<script>
-  const canvas = document.getElementById('starCanvas');
-  const ctx = canvas.getContext('2d');
-  let stars = [];
+  <a href="index.html"><button class="cta-button">Kembali ke Beranda</button></a>
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
+  <script>
+    const canvas = document.getElementById('starCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
 
-  for (let i = 0; i < 100; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5,
-      speed: Math.random() * 0.5 + 0.2
-    });
-  }
-
-  function animateStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#ffd700';
-    for (let star of stars) {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-      ctx.fill();
-      star.y += star.speed;
-      if (star.y > canvas.height) {
-        star.y = 0;
-        star.x = Math.random() * canvas.width;
-      }
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
-    requestAnimationFrame(animateStars);
-  }
-  animateStars();
-</script>
-<footer>
-        <p>&copy; 2025 Lindu Aji Kabupaten Semarang. Semua hak cipta dilindungi.</p>
-    </footer>
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#ffd700';
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fill();
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Lindu Aji Kabupaten Semarang. Semua hak cipta dilindungi.</p>
+  </footer>
 </body>
 </html>
