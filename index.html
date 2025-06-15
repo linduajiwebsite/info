@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lindu Aji Kabupaten Semarang</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      color: white;
+      text-align: center;
+      background: #000;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    h1, h3 {
+      margin: 0.5rem 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 2rem auto;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ffd700 0%, #f7c600 100%);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+<canvas id="starCanvas"></canvas>
+<canvas id="birdCanvas"></canvas>
+
+<div class="wrapper">
+  <img src="assets/images/logo.png" alt="Logo Lindu Aji" class="logo" />
+  <h1>Lindu Aji Kabupaten Semarang</h1>
+  <h3>Organisasi Masyarakat</h3>
+
+  <div class="buttons">
+    <a href="generic.html"><button class="cta-button">Tentang Kami</button></a>
+    <a href="gallery.html"><button class="cta-button">Gallery</button></a>
+    <a href="elements.html"><button class="cta-button">Pendaftaran</button></a>
+    <a href="berita.html"><button class="cta-button">Berita</button></a>
+    <a href="info.html"><button class="cta-button">Informasi</button></a>
+  </div>
+</div>
+
+<script>
+  // Animasi bintang kuning
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  for (let i = 0; i < 100; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      speed: Math.random() * 0.5 + 0.2
+    });
+  }
+
+  function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#ffd700';
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(animateStars);
+  }
+  animateStars();
+
+  // Animasi burung kuning
+  const birdCanvas = document.getElementById('birdCanvas');
+  const birdCtx = birdCanvas.getContext('2d');
+  let birds = [];
+
+  function resizeBirdCanvas() {
+    birdCanvas.width = window.innerWidth;
+    birdCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeBirdCanvas);
+  resizeBirdCanvas();
+
+  for (let i = 0; i < 15; i++) {
+    birds.push({
+      x: Math.random() * birdCanvas.width,
+      y: Math.random() * birdCanvas.height / 2,
+      size: 10 + Math.random() * 10,
+      speedX: 1 + Math.random() * 1.5,
+      direction: Math.random() > 0.5 ? 1 : -1,
+      flutter: Math.random() * 0.5
+    });
+  }
+
+  function drawBird(x, y, size, direction) {
+    birdCtx.beginPath();
+    birdCtx.moveTo(x, y);
+    birdCtx.lineTo(x - size * direction, y + size / 2);
+    birdCtx.lineTo(x - size * direction, y - size / 2);
+    birdCtx.closePath();
+    birdCtx.fillStyle = '#ffd700';
+    birdCtx.fill();
+  }
+
+  function animateBirds() {
+    birdCtx.clearRect(0, 0, birdCanvas.width, birdCanvas.height);
+    for (let bird of birds) {
+      bird.y += Math.sin(Date.now() * 0.005 + bird.flutter) * 0.5;
+      bird.x += bird.speedX * bird.direction;
+      if (bird.x < -20 || bird.x > birdCanvas.width + 20) {
+        bird.x = bird.direction === 1 ? -20 : birdCanvas.width + 20;
+        bird.y = Math.random() * birdCanvas.height / 2;
+      }
+      drawBird(bird.x, bird.y, bird.size, bird.direction);
+    }
+    requestAnimationFrame(animateBirds);
+  }
+  animateBirds();
+</script>
+<footer>
+        <p>&copy; 2025 Lindu Aji Kabupaten Semarang. Semua hak cipta dilindungi.</p>
+    </footer>
+</body>
+</html>

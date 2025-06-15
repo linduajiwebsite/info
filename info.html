@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi - Lindu Aji Kabupaten Semarang</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ffd700;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #f0f0f0;
+      margin-bottom: 1.5rem;
+    }
+
+    .news-img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .cta-button {
+      margin: 2rem auto;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #ffd700 0%, #f7c600 100%);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starCanvas"></canvas>
+
+  <img src="assets/images/logo.png" alt="Logo Lindu Aji" class="logo">
+  <h1>Papan Informasi</h1>
+
+  <div class="container">
+    <p><strong>📢 Pengumuman:</strong> Bagi anggota baru, dipersilakan untuk mengambil formulir keanggotaan di Sekretariat Lindu Aji Kabupaten Semarang atau dapat langsung menghubungi Sekretaris organisasi.</p>
+    <P>Seluruh anggota wajib mematuhi aturan dan ketentuan yang tercantum dalam AD/ART organisasi sebagai bentuk komitmen dan tanggung jawab bersama.</p>
+  </div>
+
+  <a href="index.html"><button class="cta-button">Kembali ke Beranda</button></a>
+
+  <script>
+    const canvas = document.getElementById('starCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#ffd700';
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fill();
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
+  </script>
+  <footer>
+        <p>&copy; 2025 Lindu Aji Kabupaten Semarang. Semua hak cipta dilindungi.</p>
+    </footer>
+</body>
+</html>
